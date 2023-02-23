@@ -1,7 +1,5 @@
 package animals;
 
-import animals.Lion;
-
 import java.util.Comparator;
 
 public class LionComparator implements Comparator<Lion> {

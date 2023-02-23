@@ -30,6 +30,7 @@ public class WolfCage implements AnimalCage {
 
     @Override
     public void giveFood(int weightFood) {
+        if (wolves.size() == 0) return;
         int onePortion = weightFood / wolves.size();
         if (onePortion < 5) {
             System.out.println("Это маловато для одного приема пищи... ");
@@ -49,6 +50,7 @@ public class WolfCage implements AnimalCage {
 
     @Override
     public void pickAnimalFromCage() {
+        if (wolves.size() == 0) return;
         int rnd = new Random().nextInt(wolves.size());
         wolves.remove(rnd);
         System.out.println("Забрали у вас одного волка");
