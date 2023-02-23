@@ -22,5 +22,5 @@ public interface AnimalCage<T extends Animal> {
 
     abstract void pickAnimalFromCage();
 
-    void sortByAge();
+    void deleteOlderThan(int limitAge);
 }

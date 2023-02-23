@@ -9,6 +9,18 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+//        createLions();
+        createWolves();
+    }
+
+    public static void cleanTheCage(LionCage cages) {
+        cages.setLevelOfDirty(7);
+        System.out.println(cages);
+        cages.cleaning();
+        System.out.println(cages);
+    }
+
+    public static void createLions() {
         ArrayList<Lion> lions = LionsFactory.createLions(5);
         LionCage lionsInCage = new LionCage(lions);
 
@@ -21,20 +33,27 @@ public class Main {
 
         lionsInCage.giveFood(500);
         System.out.println(lionsInCage);
+    }
 
-        ArrayList<Wolf> wolves = WolvesFactory.createWolf(3);
+    public static void createWolves() {
+        ArrayList<Wolf> wolves = WolvesFactory.createWolf(7);
         WolfCage wolvesInCage = new WolfCage(wolves);
 
-        wolvesInCage.giveFood(200);
         System.out.println(wolvesInCage);
+        wolvesInCage.giveFood(150);
+
+        wolvesInCage.sortByWeightAndAge();
+
         wolvesInCage.pickAnimalFromCage();
-    }
 
-    public static void cleanTheCage(LionCage cages) {
-        cages.setLevelOfDirty(7);
-        System.out.println(cages);
-        cages.cleaning();
-        System.out.println(cages);
-    }
+        System.out.println(wolvesInCage);
 
+        for (Wolf wolf :
+                wolvesInCage) {
+            System.out.println(wolf);
+        }
+
+        wolvesInCage.deleteOlderThan(10);
+        System.out.println(wolvesInCage);
+    }
 }

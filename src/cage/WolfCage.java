@@ -1,13 +1,13 @@
 package cage;
 
 import animals.Animal;
-import animals.Lion;
 import animals.Wolf;
+import animals.comparators.WolfComparator;
+import cage.iterators.WolfIterator;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
-public class WolfCage implements AnimalCage {
+public class WolfCage implements AnimalCage, Iterable<Wolf> {
     private ArrayList<Wolf> wolves;
     private int levelOfDirty;
 
@@ -58,10 +58,30 @@ public class WolfCage implements AnimalCage {
     }
 
     @Override
-    public void sortByAge() {
+    public void deleteOlderThan(int limitAge) {
+        Iterator<Wolf> wolfIterator = wolves.iterator();
+        while (wolfIterator.hasNext()) {
+            Wolf wolf = wolfIterator.next();
+            if (wolf.getAge() > limitAge) {
+                wolfIterator.remove();
+            }
+        }
+//        for (Wolf wolf : wolves) {
+//            if (wolf.getAge() > limitAge) wolves.remove(wolf);
+//            }
+//        }
+    }
+
+    public void sortByWeightAndAge() {
+        Collections.sort(wolves, new WolfComparator());
     }
 
     public void setLevelOfDirty(int levelOfDirty) {
         this.levelOfDirty = levelOfDirty;
+    }
+
+    @Override
+    public Iterator<Wolf> iterator() {
+        return new WolfIterator(wolves);
     }
 }

@@ -2,10 +2,12 @@ package cage;
 
 import animals.Animal;
 import animals.Lion;
-import animals.LionComparator;
+import animals.Wolf;
+import animals.comparators.LionComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Random;
 
 public class LionCage implements AnimalCage {
@@ -65,11 +67,18 @@ public class LionCage implements AnimalCage {
         int rnd = new Random().nextInt(lions.size());
         lions.remove(rnd);
         System.out.println("Забрали у вас одного львенка" +
-                        ", осталось - " + lions.size());
+                ", осталось - " + lions.size());
     }
 
     @Override
-    public void sortByAge() {
+    public void deleteOlderThan(int limitAge) {
+        Iterator<Lion> lionIterator = lions.iterator();
+        while (lionIterator.hasNext()) {
+            Lion lion = lionIterator.next();
+            if (lion.getAge() > limitAge) {
+                lionIterator.remove();
+            }
+        }
     }
 
     public void setLevelOfDirty(int levelOfDirty) {

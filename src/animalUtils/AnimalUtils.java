@@ -1,10 +1,7 @@
 package animalUtils;
 
 import animals.Animal;
-import animals.Lion;
-import animals.LionComparator;
 
-import java.util.Collections;
 import java.util.List;
 
 public class AnimalUtils <T extends Animal> {
