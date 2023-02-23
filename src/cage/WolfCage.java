@@ -49,12 +49,12 @@ public class WolfCage implements AnimalCage, Iterable<Wolf> {
     }
 
     @Override
-    public void pickAnimalFromCage() {
-        if (wolves.size() == 0) return;
+    public Wolf pickAnimalFromCage() {
+        if (wolves.size() == 0) return null;
         int rnd = new Random().nextInt(wolves.size());
-        wolves.remove(rnd);
         System.out.println("Забрали у вас одного волка" +
                 ", осталось - " + wolves.size());
+        return wolves.remove(rnd);
     }
 
     @Override

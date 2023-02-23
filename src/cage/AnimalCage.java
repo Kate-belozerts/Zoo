@@ -9,6 +9,10 @@
 package cage;
 
 import animals.Animal;
+import animals.comparators.AnimalComparator;
+
+import java.util.Collections;
+import java.util.List;
 
 
 public interface AnimalCage<T extends Animal> {
@@ -20,7 +24,11 @@ public interface AnimalCage<T extends Animal> {
 
     public abstract void cleaning();
 
-    abstract void pickAnimalFromCage();
+    abstract T pickAnimalFromCage();
 
     void deleteOlderThan(int limitAge);
+
+    default void sortByAge(List<T> animalList){
+        Collections.sort(animalList, new AnimalComparator());
+    }
 }
