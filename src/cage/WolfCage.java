@@ -53,7 +53,8 @@ public class WolfCage implements AnimalCage {
         if (wolves.size() == 0) return;
         int rnd = new Random().nextInt(wolves.size());
         wolves.remove(rnd);
-        System.out.println("Забрали у вас одного волка");
+        System.out.println("Забрали у вас одного волка" +
+                ", осталось - " + wolves.size());
     }
 
     @Override

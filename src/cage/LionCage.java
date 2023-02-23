@@ -64,7 +64,8 @@ public class LionCage implements AnimalCage {
         if (lions.size() == 0) return;
         int rnd = new Random().nextInt(lions.size());
         lions.remove(rnd);
-        System.out.println("Забрали у вас одного львенка");
+        System.out.println("Забрали у вас одного львенка" +
+                        ", осталось - " + lions.size());
     }
 
     @Override

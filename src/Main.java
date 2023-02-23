@@ -22,12 +22,8 @@ public class Main {
         lionsInCage.giveFood(500);
         System.out.println(lionsInCage);
 
-        ArrayList<Wolf> wolves = WolvesFactory.createWolf(0);
+        ArrayList<Wolf> wolves = WolvesFactory.createWolf(3);
         WolfCage wolvesInCage = new WolfCage(wolves);
-        System.out.println(wolvesInCage);
-
-//        ArrayList<Wolf> wolves = WolvesFactory.createWolf(3);
-//        WolfCage wolvesInCage = new WolfCage(wolves);
 
         wolvesInCage.giveFood(200);
         System.out.println(wolvesInCage);
