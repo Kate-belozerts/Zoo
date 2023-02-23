@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 
-public class LionCage implements AnimalCage {
+public class LionCage implements AnimalCage<Lion> {
     private ArrayList<Lion> lions;
     private int levelOfDirty;
 
@@ -33,11 +33,8 @@ public class LionCage implements AnimalCage {
     }
 
     @Override
-    public void addToCage(Animal animal) {
-        if (animal instanceof Lion) {
-            lions.add((Lion) animal);
-        } else System.out.println("Ко львам нельзя добавить животное " +
-                "другого вида.. только если вам его не жалко");
+    public void addToCage(Lion animal) {
+        lions.add(animal);
     }
 
     @Override

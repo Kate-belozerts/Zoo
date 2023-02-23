@@ -7,7 +7,7 @@ import cage.iterators.WolfIterator;
 
 import java.util.*;
 
-public class WolfCage implements AnimalCage, Iterable<Wolf> {
+public class WolfCage implements AnimalCage<Wolf>, Iterable<Wolf> {
     private ArrayList<Wolf> wolves;
     private int levelOfDirty;
 
@@ -22,10 +22,8 @@ public class WolfCage implements AnimalCage, Iterable<Wolf> {
     }
 
     @Override
-    public void addToCage(Animal animal) {
-        if (animal instanceof Wolf) {
-            wolves.add((Wolf) animal);
-        }
+    public void addToCage(Wolf animal) {
+        wolves.add(animal);
     }
 
     @Override
@@ -66,10 +64,6 @@ public class WolfCage implements AnimalCage, Iterable<Wolf> {
                 wolfIterator.remove();
             }
         }
-//        for (Wolf wolf : wolves) {
-//            if (wolf.getAge() > limitAge) wolves.remove(wolf);
-//            }
-//        }
     }
 
     public void sortByWeightAndAge() {

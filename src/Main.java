@@ -1,5 +1,7 @@
+import animalUtils.AnimalUtils;
 import animals.Lion;
 import animals.Wolf;
+import cage.AnimalCage;
 import cage.LionCage;
 import cage.WolfCage;
 import factory.LionsFactory;
@@ -11,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
 //        createLions();
         createWolves();
+
     }
 
     public static void cleanTheCage(LionCage cages) {
@@ -39,12 +42,15 @@ public class Main {
         ArrayList<Wolf> wolves = WolvesFactory.createWolf(7);
         WolfCage wolvesInCage = new WolfCage(wolves);
 
+        AnimalUtils.sortAnimals(wolves);
+        System.out.println(wolves);
+
         System.out.println(wolvesInCage);
         wolvesInCage.giveFood(150);
 
         wolvesInCage.sortByWeightAndAge();
 
-        wolvesInCage.pickAnimalFromCage();
+        System.out.println(wolvesInCage.pickAnimalFromCage());
 
         System.out.println(wolvesInCage);
 
