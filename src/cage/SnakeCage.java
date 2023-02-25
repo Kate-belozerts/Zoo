@@ -37,10 +37,10 @@ public class SnakeCage implements AnimalCage<Snake>{
 
     @Override
     public Snake pickAnimalFromCage() {
-        if (snakesTerrarium.size() == 0) return null;
-        int rnd = new Random().nextInt(snakesTerrarium.size());
-        System.out.println("Забрали змею");
-        return snakesTerrarium.remove(rnd);
+        if (snakesTerrarium.size() > 0) {
+            System.out.println("Забрали змею, осталось - " + snakesTerrarium.size());
+            return snakesTerrarium.remove(new Random().nextInt(snakesTerrarium.size()));
+        }else return null;
     }
 
     @Override

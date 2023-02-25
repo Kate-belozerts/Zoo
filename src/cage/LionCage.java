@@ -60,11 +60,11 @@ public class LionCage implements AnimalCage<Lion> {
 
     @Override
     public Lion pickAnimalFromCage() {
-        if (lions.size() == 0) return null;
-        int rnd = new Random().nextInt(lions.size());
-        System.out.println("Забрали у вас одного львенка" +
-                ", осталось - " + lions.size());
-        return lions.remove(rnd);
+        if (lions.size() > 0) {
+            System.out.println("Забрали у вас одного львенка" +
+                    ", осталось - " + lions.size());
+            return lions.remove(new Random().nextInt(lions.size()));
+        }else return null;
     }
 
     @Override
