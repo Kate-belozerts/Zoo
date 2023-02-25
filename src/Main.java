@@ -45,6 +45,8 @@ public class Main {
         AnimalUtils.sortAnimals(wolves);
         System.out.println(wolves);
 
+        wolvesInCage.sortByAge(wolves);
+
         System.out.println(wolvesInCage);
         wolvesInCage.giveFood(150);
 
