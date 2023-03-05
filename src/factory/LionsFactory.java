@@ -17,8 +17,8 @@ public class LionsFactory {
     static public ArrayList<Lion> createLions(int lionCount) {
         ArrayList<Lion> lionInCage = new ArrayList<>(lionCount);
         for (int i = 0; i < lionCount; i++) {
-            Lion lion = new Lion(4, new Random().nextInt(2, 15), new Random().nextInt(200),
-                    new Random().nextInt(50));
+            Lion lion = new Lion(new Random().nextInt(2, 15), new Random().nextInt(200),
+                    new Random().nextInt(50), 4);
             lionInCage.add(lion);
         }
         return lionInCage;

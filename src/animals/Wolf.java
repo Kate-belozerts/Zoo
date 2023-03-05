@@ -3,10 +3,12 @@ package animals;
 public class Wolf extends Animal {
     protected static final int MAX_WEIGHT = 90;
     protected static final String TYPE = "Wolf";
+    private final int countExtremity;
 
 
-    public Wolf(int countExtremity, int age, int weight) {
-        super(countExtremity, age, weight);
+    public Wolf(int age, int weight, int countExtremity) {
+        super(age, weight);
+        this.countExtremity = countExtremity;
     }
 
     @Override

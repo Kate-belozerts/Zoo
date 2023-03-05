@@ -15,8 +15,7 @@ public abstract class Animal {
     protected int age;
     protected int weight;
 
-    public Animal(int countExtremity, int age, int weight) {
-        this.countExtremity = countExtremity;
+    public Animal(int age, int weight) {
         this.age = age;
         this.weight = weight;
     }

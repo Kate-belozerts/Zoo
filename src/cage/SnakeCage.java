@@ -2,13 +2,18 @@ package cage;
 
 import animals.Snake;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 public class SnakeCage implements AnimalCage<Snake>{
-    private List<Snake> snakesTerrarium;
+    private final List<Snake> snakesTerrarium;
     private int levelOfDirty;
+
+    public SnakeCage(ArrayList<Snake> snakes) {
+        this.snakesTerrarium = snakes;
+    }
 
     @Override
     public void addToCage(Snake animal) {
@@ -17,10 +22,12 @@ public class SnakeCage implements AnimalCage<Snake>{
 
     @Override
     public void giveFood(int weightFood) {
-        if (snakesTerrarium.size() == 0) return;
-        int onePortion = weightFood / snakesTerrarium.size();
-        if (onePortion < 10) {
-            System.out.println("Лучше прибавить порцию");
+        int onePortion = 0;
+        if (snakesTerrarium.size() > 0) {
+            onePortion = weightFood / snakesTerrarium.size();
+            if (onePortion < 10) {
+                System.out.println("Лучше прибавить порцию");
+            }
         }
         for (Snake snake : snakesTerrarium) {
             snake.feed(onePortion);
@@ -38,7 +45,7 @@ public class SnakeCage implements AnimalCage<Snake>{
     @Override
     public Snake pickAnimalFromCage() {
         if (snakesTerrarium.size() > 0) {
-            System.out.println("Забрали змею, осталось - " + snakesTerrarium.size());
+            System.out.println("Забрали змею, осталось - " + (snakesTerrarium.size()-1));
             return snakesTerrarium.remove(new Random().nextInt(snakesTerrarium.size()));
         }else return null;
     }
@@ -54,4 +61,14 @@ public class SnakeCage implements AnimalCage<Snake>{
         }
     }
 
+    @Override
+    public int countInCage() {
+        return this.snakesTerrarium.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Snake Cage: " + snakesTerrarium +
+                "\nLevel Of Dirty - " + levelOfDirty;
+    }
 }

@@ -27,6 +27,7 @@ public interface AnimalCage<T extends Animal> {
     abstract T pickAnimalFromCage();
 
     void deleteOlderThan(int limitAge);
+    int countInCage();
 
     default void sortByAge(List<T> animalList){
         Collections.sort(animalList, new AnimalComparator());

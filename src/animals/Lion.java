@@ -6,14 +6,16 @@
 package animals;
 
 public class Lion extends Animal implements Comparable<Lion> {
-    private int volume;
+    private final int volume;
+    private final int countExtremity;
     protected static final int MAX_WEIGHT = 200;
     protected static final String TYPE = "Lion";
 
 
-    public Lion(int countExtremity, int age, int weight, int volume) {
-        super(countExtremity, age, weight);
+    public Lion(int age, int weight, int volume, int countExtremity) {
+        super(age, weight);
         this.volume = volume;
+        this.countExtremity = countExtremity;
     }
 
     public int getVolume() {
@@ -27,8 +29,8 @@ public class Lion extends Animal implements Comparable<Lion> {
     @Override
     public String toString() {
         return "Lion: " +
-                "volume of mane - " + volume +
-                "\nExtremity - " + countExtremity +
+                "Volume of mane - " + volume +
+                ", Extremity - " + countExtremity +
                 ", age - " + age +
                 ", weight - " + weight + "\n";
     }

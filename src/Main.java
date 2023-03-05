@@ -1,19 +1,29 @@
 import animalUtils.AnimalUtils;
 import animals.Lion;
+import animals.Snake;
 import animals.Wolf;
-import cage.AnimalCage;
+
 import cage.LionCage;
+import cage.SnakeCage;
 import cage.WolfCage;
 import factory.LionsFactory;
+import factory.SnakesFactory;
 import factory.WolvesFactory;
+import terminal.communicate.TerminalReader;
+//import terminal.processing.ParserNumber;
+import terminal.processing.ParserText;
+import zoo.Zoo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 //        createLions();
-        createWolves();
+//        createWolves();
 
+//        TerminalReader reader = TerminalReader.newTerminalReader(new ParserNumber());
+        TerminalReader reader = TerminalReader.newTerminalReader(new ParserText());
+        reader.endless();
     }
 
     public static void cleanTheCage(LionCage cages) {
@@ -44,24 +54,30 @@ public class Main {
 
         AnimalUtils.sortAnimals(wolves);
         System.out.println(wolves);
+        System.out.println(wolvesInCage);
 
         wolvesInCage.sortByAge(wolves);
-
-        System.out.println(wolvesInCage);
+        wolvesInCage.comparing();
+//
         wolvesInCage.giveFood(150);
-
+        System.out.println(wolvesInCage);
         wolvesInCage.sortByWeightAndAge();
-
         System.out.println(wolvesInCage.pickAnimalFromCage());
 
         System.out.println(wolvesInCage);
-
-        for (Wolf wolf :
-                wolvesInCage) {
-            System.out.println(wolf);
-        }
-
         wolvesInCage.deleteOlderThan(10);
         System.out.println(wolvesInCage);
+    }
+
+    public static Zoo createZoo() {
+        ArrayList<Wolf> wolves = WolvesFactory.createWolf(7);
+        WolfCage wolvesInCage = new WolfCage(wolves);
+        ArrayList<Lion> lions = LionsFactory.createLions(5);
+        LionCage lionsInCage = new LionCage(lions);
+        ArrayList<Snake> snakes = SnakesFactory.createSnake(5);
+        SnakeCage snakeCage = new SnakeCage(snakes);
+
+        Zoo zooNew = new Zoo(wolvesInCage, lionsInCage, snakeCage);
+        return zooNew;
     }
 }
