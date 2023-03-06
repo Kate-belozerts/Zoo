@@ -3,6 +3,9 @@ package terminal.allExecute.delete;
 import terminal.allExecute.CommandExecutable;
 import zoo.Zoo;
 
+/**
+ * Remove random animal from the whole zoo
+ */
 public class DeleteAnimalExecutable implements CommandExecutable {
     private final Zoo zoo;
 

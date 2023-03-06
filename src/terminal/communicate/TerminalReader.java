@@ -16,6 +16,9 @@ import zoo.Zoo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Variable with 3 fields to communicate with user. Create zoo inside and working with input text.
+ */
 public class TerminalReader extends CommandExecutableFactoryInt {
     private static TerminalReader terminalReader;
     private final CommandParser commandParser;

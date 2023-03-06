@@ -1,5 +1,8 @@
 package animals;
 
+/**
+ * Wolf has age, weight and in general 4 extremities
+ */
 public class Wolf extends Animal {
     protected static final int MAX_WEIGHT = 90;
     protected static final String TYPE = "Wolf";

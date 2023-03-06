@@ -14,19 +14,40 @@ import animals.comparators.AnimalComparator;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The cage contains one sort of animal
+ */
 
 public interface AnimalCage<T extends Animal> {
 
-
+    /**
+     *Add animal to cage
+     */
     void addToCage(T animal);
 
+    /**
+     *Feed animals in cage with equal portions
+     */
     void giveFood(int weightFood);
 
+    /**
+     * Clean the cage
+     */
     public abstract void cleaning();
 
+    /**
+     *Pick one random animal from cage
+     */
     abstract T pickAnimalFromCage();
 
+    /**
+     *To avoid bulling young animals you can take older animals out from this cage
+     */
     void deleteOlderThan(int limitAge);
+
+    /**
+     * @return Current number of animals living in this cage
+     */
     int countInCage();
 
     default void sortByAge(List<T> animalList){

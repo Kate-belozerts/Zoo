@@ -11,16 +11,20 @@ import terminal.allExecute.delete.DeleteAnimalExecutable;
 import terminal.communicate.inputData.CommandText;
 import zoo.Zoo;
 
+/**
+ * Execute the method depending on user's request
+ */
 public class CommandExecutableFactoryText {
 
-    public CommandExecutable create(CommandText command, Zoo zoo){
-        if (command.isAdd()){
+    public CommandExecutable create(CommandText command, Zoo zoo) {
+        if (command.isAdd()) {
             switch (command.getAnimal()) {
                 case "lion" -> {
                     return new CreateLion(zoo, new Lion(command.getParameters().get("age"),
                             command.getParameters().get("weight"), command.getParameters().get("volume"),
                             command.getParameters().get("limbs")));
-                } case "wolf" -> {
+                }
+                case "wolf" -> {
                     return new CreateWolf(zoo, new Wolf(command.getParameters().get("age"),
                             command.getParameters().get("weight"), command.getParameters().get("limbs")));
                 }

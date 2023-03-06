@@ -1,7 +1,10 @@
 package terminal.communicate.menus;
 
-public class menuNumber{
-    public static void menuStartNumbers(){
+/**
+ * Print menu for choose a number
+ */
+public class menuNumber {
+    public static void menuStartNumbers() {
         System.out.println("""
                 Введите запрос:\s
                 0 - выйти

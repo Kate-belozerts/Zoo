@@ -1,2 +1,4 @@
-package animals.comparators;public class LionComparable {
+package animals.comparators;
+
+public class LionComparable {
 }

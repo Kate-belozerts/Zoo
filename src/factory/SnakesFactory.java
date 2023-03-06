@@ -5,6 +5,9 @@ import animals.Snake;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Fill the terrarium with snakes
+ */
 public class SnakesFactory {
     static public ArrayList<Snake> createSnake(int snakeCount) {
         ArrayList<Snake> snakeTerrarium = new ArrayList<>(snakeCount);

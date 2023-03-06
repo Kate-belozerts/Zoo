@@ -1,6 +1,9 @@
 package terminal.communicate.menus;
 
-public class menuText{
+/**
+ * Print menu to choose further movement
+ */
+public class menuText {
     public static void menuStartText() {
         System.out.println("""
                 Введите запрос:\s

@@ -20,10 +20,23 @@ public abstract class Animal {
         this.weight = weight;
     }
 
+    /**
+     * For animal's health you better not to go beyond the limit this index
+     *
+     * @return Maximum allowable weight of the animal
+     */
     public abstract int getMaxWeight();
 
+    /**
+     * This type of animal
+     *
+     * @return String with its species
+     */
     public abstract String getType();
 
+    /**
+     * Feed animal safely. This method will help you to control animal's weight
+     */
     public void feed(int foodWeight) {
         if (this.weight + foodWeight <= getMaxWeight()) {
             this.weight += foodWeight;
@@ -49,6 +62,9 @@ public abstract class Animal {
         this.age = age;
     }
 
+    /**
+     * @return animal's current weight
+     */
     public int getWeight() {
         return weight;
     }

@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Terrarium with snakes
+ */
 public class SnakeCage implements AnimalCage<Snake>{
     private final List<Snake> snakesTerrarium;
     private int levelOfDirty;

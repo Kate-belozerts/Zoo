@@ -5,6 +5,11 @@
 
 package animals;
 
+/**
+ * Animal lion has age, weight, volume and in general 4 extremity.
+ * His maximal weight is 200 kg
+ */
+
 public class Lion extends Animal implements Comparable<Lion> {
     private final int volume;
     private final int countExtremity;
@@ -18,6 +23,9 @@ public class Lion extends Animal implements Comparable<Lion> {
         this.countExtremity = countExtremity;
     }
 
+    /**
+     * @return volume of lion's mane
+     */
     public int getVolume() {
         return volume;
     }

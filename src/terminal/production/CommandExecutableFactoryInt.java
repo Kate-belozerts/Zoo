@@ -6,7 +6,9 @@ import terminal.allExecute.delete.DeleteAnimalExecutable;
 import terminal.communicate.inputData.CommandNumber;
 import zoo.Zoo;
 
-
+/**
+ * Execute the method depending on user's request
+ */
 public class CommandExecutableFactoryInt {
 
     public CommandExecutable create(CommandNumber command, Zoo zoo) {

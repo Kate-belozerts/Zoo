@@ -6,6 +6,9 @@ import cage.iterators.WolfIterator;
 
 import java.util.*;
 
+/**
+ * Cage with wolves
+ */
 public class WolfCage implements AnimalCage<Wolf>, Iterable<Wolf> {
     private final ArrayList<Wolf> wolves;
     private int levelOfDirty;

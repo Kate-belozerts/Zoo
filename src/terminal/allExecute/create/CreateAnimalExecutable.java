@@ -4,8 +4,11 @@ import terminal.allExecute.CommandExecutable;
 import zoo.Zoo;
 
 public class CreateAnimalExecutable implements CommandExecutable {
-    private Zoo zoo;
+    private final Zoo zoo;
 
+    /**
+     * Add random animal to cage in zoo
+     */
     public CreateAnimalExecutable(Zoo zoo) {
         this.zoo = zoo;
     }

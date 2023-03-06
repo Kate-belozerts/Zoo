@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+/**
+ * Cage with lions
+ */
 public class LionCage implements AnimalCage<Lion> {
     private final ArrayList<Lion> lions;
     private int levelOfDirty;

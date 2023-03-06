@@ -1,5 +1,9 @@
 
 package animals;
+
+/**
+ * Snake has its age, weight and length
+ */
 public class Snake extends Animal {
     private final int snakeLength;
     protected static final int MAX_WEIGHT = 100;

@@ -5,6 +5,9 @@ import animals.Wolf;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Fill the cage with wolves
+ */
 public class WolvesFactory {
     static public ArrayList<Wolf> createWolf(int wolfCount) {
         ArrayList<Wolf> wolfInCage = new ArrayList<>(wolfCount);

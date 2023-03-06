@@ -13,6 +13,9 @@ import animals.Lion;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Fill the cage with lions
+ */
 public class LionsFactory {
     static public ArrayList<Lion> createLions(int lionCount) {
         ArrayList<Lion> lionInCage = new ArrayList<>(lionCount);

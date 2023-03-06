@@ -4,6 +4,9 @@ import animals.Wolf;
 import terminal.allExecute.CommandExecutable;
 import zoo.Zoo;
 
+/**
+ * Add wolf to cage in zoo
+ */
 public class CreateWolf implements CommandExecutable {
     private final Zoo zoo;
     private final Wolf wolf;

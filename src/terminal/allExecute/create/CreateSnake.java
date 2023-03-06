@@ -4,6 +4,9 @@ import animals.Snake;
 import terminal.allExecute.CommandExecutable;
 import zoo.Zoo;
 
+/**
+ * Add snake to terrarium in zoo
+ */
 public class CreateSnake implements CommandExecutable {
     private final Zoo zoo;
     private final Snake snake;
