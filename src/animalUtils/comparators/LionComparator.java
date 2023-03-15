@@ -1,9 +1,12 @@
-package animals.comparators;
+package animalUtils.comparators;
 
 import animals.Lion;
 
 import java.util.Comparator;
 
+/**
+ * Compare lions with their volume of mane
+ */
 public class LionComparator implements Comparator<Lion> {
     @Override
     public int compare(Lion o1, Lion o2) {

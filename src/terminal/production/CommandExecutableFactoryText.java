@@ -1,39 +1,41 @@
 package terminal.production;
 
-import animals.Lion;
-import animals.Snake;
-import animals.Wolf;
 import terminal.allExecute.CommandExecutable;
 import terminal.allExecute.create.CreateLion;
 import terminal.allExecute.create.CreateSnake;
 import terminal.allExecute.create.CreateWolf;
 import terminal.allExecute.delete.DeleteAnimalExecutable;
+import terminal.communicate.inputData.Command;
 import terminal.communicate.inputData.CommandText;
 import zoo.Zoo;
+
+import java.util.EmptyStackException;
 
 /**
  * Execute the method depending on user's request
  */
-public class CommandExecutableFactoryText {
+public class CommandExecutableFactoryText implements CommandExecutableFactory {
 
-    public CommandExecutable create(CommandText command, Zoo zoo) {
-        if (command.isAdd()) {
-            switch (command.getAnimal()) {
+    public CommandExecutable create(Command command, Zoo zoo) {
+        if (command.isCreate()) {
+            switch (((CommandText) command).getAnimal()) {
                 case "lion" -> {
-                    return new CreateLion(zoo, new Lion(command.getParameters().get("age"),
-                            command.getParameters().get("weight"), command.getParameters().get("volume"),
-                            command.getParameters().get("limbs")));
+                    CreateLion res = new CreateLion(zoo);
+                    res.lionParameters((CommandText) command);
+                    return res;
                 }
                 case "wolf" -> {
-                    return new CreateWolf(zoo, new Wolf(command.getParameters().get("age"),
-                            command.getParameters().get("weight"), command.getParameters().get("limbs")));
+                    CreateWolf res = new CreateWolf(zoo);
+                    res.wolfParameters((CommandText) command);
+                    return res;
                 }
                 case "snake" -> {
-                    return new CreateSnake(zoo, new Snake(command.getParameters().get("age"),
-                            command.getParameters().get("weight"), command.getParameters().get("length")));
+                    CreateSnake res = new CreateSnake(zoo);
+                    res.snakeParameters((CommandText) command);
+                    return res;
                 }
             }
-        } else return new DeleteAnimalExecutable(zoo);
-        return null;
+        } else if (command.isDelete()) return new DeleteAnimalExecutable(zoo);
+        throw new EmptyStackException();
     }
 }

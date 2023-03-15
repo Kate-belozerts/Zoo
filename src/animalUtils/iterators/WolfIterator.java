@@ -1,4 +1,4 @@
-package cage.iterators;
+package animalUtils.iterators;
 
 import animals.Wolf;
 
@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class WolfIterator implements Iterator<Wolf> {
-    private List<Wolf> wolfs;
+    private final List<Wolf> wolfs;
     private int cursor;
 
     public WolfIterator(List<Wolf> wolfs) {

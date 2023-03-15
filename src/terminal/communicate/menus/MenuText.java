@@ -3,9 +3,10 @@ package terminal.communicate.menus;
 /**
  * Print menu to choose further movement
  */
-public class menuText {
+public class MenuText {
     public static void menuStartText() {
         System.out.println("""
+                __________________________________________________________________________________
                 Введите запрос:\s
                 exit - выйти
                 1 - добвить животное
@@ -21,5 +22,9 @@ public class menuText {
                 Для ЗМЕИ: возраст, вес и длину
                 ____________________________________________________________________________________
                 """);
+    }
+
+    public static void menuContinue() {
+        System.out.println(" Введите параметры или exit для выхода: ");
     }
 }

@@ -11,18 +11,21 @@ package factory;
 import animals.Lion;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Fill the cage with lions
  */
 public class LionsFactory {
-    static public ArrayList<Lion> createLions(int lionCount) {
-        ArrayList<Lion> lionInCage = new ArrayList<>(lionCount);
-        for (int i = 0; i < lionCount; i++) {
-            Lion lion = new Lion(new Random().nextInt(2, 15), new Random().nextInt(200),
-                    new Random().nextInt(50), 4);
-            lionInCage.add(lion);
+    static public List<Lion> createLions(int lionCount) {
+        List<Lion> lionInCage = new ArrayList<>();
+        if (lionCount > 0) {
+            for (int i = 0; i < lionCount; i++) {
+                Lion lion = new Lion(new Random().nextInt(2, 15), new Random().nextInt(200),
+                        new Random().nextInt(50), 4);
+                lionInCage.add(lion);
+            }
         }
         return lionInCage;
     }

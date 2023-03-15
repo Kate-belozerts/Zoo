@@ -10,8 +10,6 @@
 package animals;
 
 public abstract class Animal {
-
-    protected int countExtremity;
     protected int age;
     protected int weight;
 
@@ -35,31 +33,10 @@ public abstract class Animal {
     public abstract String getType();
 
     /**
-     * Feed animal safely. This method will help you to control animal's weight
+     * @return animal's current age
      */
-    public void feed(int foodWeight) {
-        if (this.weight + foodWeight <= getMaxWeight()) {
-            this.weight += foodWeight;
-        } else {
-            System.out.println("Животное слишком потолстело, убавьте порцию");
-        }
-    }
-
-
-    public int getCountExtremity() {
-        return countExtremity;
-    }
-
-    public void setCountExtremity(int countExtremity) {
-        this.countExtremity = countExtremity;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     /**
@@ -69,7 +46,14 @@ public abstract class Animal {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    /**
+     * Feed animal safely. This method will help you to control animal's weight
+     */
+    public void feed(int foodWeight) {
+        if (this.weight + foodWeight <= getMaxWeight()) {
+            this.weight += foodWeight;
+        } else {
+            System.out.println("Животное слишком потолстело, убавьте порцию");
+        }
     }
 }

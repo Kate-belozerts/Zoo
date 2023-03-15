@@ -10,7 +10,7 @@ package animals;
  * His maximal weight is 200 kg
  */
 
-public class Lion extends Animal implements Comparable<Lion> {
+public class Lion extends Animal {
     private final int volume;
     private final int countExtremity;
     protected static final int MAX_WEIGHT = 200;
@@ -35,15 +35,6 @@ public class Lion extends Animal implements Comparable<Lion> {
     }
 
     @Override
-    public String toString() {
-        return "Lion: " +
-                "Volume of mane - " + volume +
-                ", Extremity - " + countExtremity +
-                ", age - " + age +
-                ", weight - " + weight + "\n";
-    }
-
-    @Override
     public int getMaxWeight() {
         return MAX_WEIGHT;
     }
@@ -54,12 +45,11 @@ public class Lion extends Animal implements Comparable<Lion> {
     }
 
     @Override
-    public int compareTo(Lion o) {
-        if (this.age > o.age) {
-            return 1;
-        } else if (this.age < o.age) {
-            return -1;
-        }
-        return 0;
+    public String toString() {
+        return "Lion: " +
+                "Volume of mane - " + volume +
+                ", Extremity - " + countExtremity +
+                ", age - " + age +
+                ", weight - " + weight + "\n";
     }
 }

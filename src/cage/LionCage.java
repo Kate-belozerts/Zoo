@@ -1,20 +1,22 @@
 package cage;
 
 import animals.Lion;
-import animals.comparators.LionComparator;
+import animalUtils.comparators.AnimalComparator;
+import animalUtils.comparators.LionComparator;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EmptyStackException;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Cage with lions
  */
 public class LionCage implements AnimalCage<Lion> {
-    private final ArrayList<Lion> lions;
+    private final List<Lion> lions;
     private int levelOfDirty;
 
-    public LionCage(ArrayList<Lion> lions) {
+    public LionCage(List<Lion> lions) {
         this.lions = lions;
     }
 
@@ -23,7 +25,7 @@ public class LionCage implements AnimalCage<Lion> {
     }
 
     public void sortLion() {
-        Collections.sort(lions);
+        Collections.sort(this.lions, new AnimalComparator());
     }
 
     @Override
@@ -66,14 +68,15 @@ public class LionCage implements AnimalCage<Lion> {
             System.out.println("Забрали у вас одного львенка" +
                     ", осталось - " + (lions.size() - 1));
             return lions.remove(new Random().nextInt(lions.size()));
-        }else return null;
+        } else throw new EmptyStackException();
     }
 
     @Override
     public void deleteOlderThan(int limitAge) {
         lions.removeIf(lion -> lion.getAge() > limitAge);
     }
-    public int countInCage(){
+
+    public int countInCage() {
         return this.lions.size();
     }
 

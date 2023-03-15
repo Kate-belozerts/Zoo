@@ -3,7 +3,7 @@ package terminal.communicate.menus;
 /**
  * Print menu for choose a number
  */
-public class menuNumber {
+public class MenuNumber {
     public static void menuStartNumbers() {
         System.out.println("""
                 Введите запрос:\s

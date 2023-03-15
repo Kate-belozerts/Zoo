@@ -9,7 +9,7 @@
 package cage;
 
 import animals.Animal;
-import animals.comparators.AnimalComparator;
+import animalUtils.comparators.AnimalComparator;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,12 +21,12 @@ import java.util.List;
 public interface AnimalCage<T extends Animal> {
 
     /**
-     *Add animal to cage
+     * Add animal to cage
      */
     void addToCage(T animal);
 
     /**
-     *Feed animals in cage with equal portions
+     * Feed animals in cage with equal portions
      */
     void giveFood(int weightFood);
 
@@ -36,12 +36,12 @@ public interface AnimalCage<T extends Animal> {
     public abstract void cleaning();
 
     /**
-     *Pick one random animal from cage
+     * Pick one random animal from cage
      */
-    abstract T pickAnimalFromCage();
+    T pickAnimalFromCage();
 
     /**
-     *To avoid bulling young animals you can take older animals out from this cage
+     * To avoid bulling young animals you can take older animals out from this cage
      */
     void deleteOlderThan(int limitAge);
 
@@ -50,7 +50,7 @@ public interface AnimalCage<T extends Animal> {
      */
     int countInCage();
 
-    default void sortByAge(List<T> animalList){
+    default void sortByAge(List<T> animalList) {
         Collections.sort(animalList, new AnimalComparator());
     }
 }

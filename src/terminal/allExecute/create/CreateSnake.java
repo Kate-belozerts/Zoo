@@ -2,6 +2,7 @@ package terminal.allExecute.create;
 
 import animals.Snake;
 import terminal.allExecute.CommandExecutable;
+import terminal.communicate.inputData.CommandText;
 import zoo.Zoo;
 
 /**
@@ -9,15 +10,19 @@ import zoo.Zoo;
  */
 public class CreateSnake implements CommandExecutable {
     private final Zoo zoo;
-    private final Snake snake;
+    private Snake snake;
 
-    public CreateSnake(Zoo zoo, Snake snake) {
+    public CreateSnake(Zoo zoo) {
         this.zoo = zoo;
-        this.snake = snake;
+    }
+
+    public void snakeParameters(CommandText command) {
+        this.snake = new Snake(command.getParameters().get("age"),
+                command.getParameters().get("weight"), command.getParameters().get("length"));
     }
 
     @Override
     public void execute() {
-        this.zoo.addSnake(snake);
+        this.zoo.addSnake(this.snake);
     }
 }

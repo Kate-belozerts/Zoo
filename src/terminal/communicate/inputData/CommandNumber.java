@@ -1,11 +1,15 @@
 package terminal.communicate.inputData;
 
+import java.util.Map;
+
 /**
  * Variable to work with numbers from terminal. Has action number and input text
  */
-public class CommandNumber {
+public class CommandNumber implements Command {
     private final String input;
     private final int action;
+    private static final int ADD = 1;
+    private static final int DELETE = 2;
 
     public CommandNumber(String input, int action) {
         this.input = input;
@@ -21,13 +25,13 @@ public class CommandNumber {
      * True if user chose create an animal
      */
     public boolean isCreate() {
-        return action == 1;
+        return action == ADD;
     }
 
     /**
      * True if user chose delete an animal
      */
     public boolean isDelete() {
-        return action == 2;
+        return action == DELETE;
     }
 }

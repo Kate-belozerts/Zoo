@@ -5,6 +5,9 @@ import animals.Lion;
 import animals.Snake;
 import animals.Wolf;
 import cage.AnimalCage;
+import cage.LionCage;
+import cage.SnakeCage;
+import cage.WolfCage;
 
 import java.util.*;
 
@@ -12,14 +15,14 @@ import java.util.*;
  * Zoo contains three type of cages: wolf's cage, lion's cage and snake terrarium.
  */
 public class Zoo {
-    private final AnimalCage<Wolf> wolfCage;
-    private final AnimalCage<Lion> lionCage;
-    private final AnimalCage<Snake> snakeTerrarium;
+    private AnimalCage<Wolf> wolfCage;
+    private AnimalCage<Lion> lionCage;
+    private AnimalCage<Snake> snakeTerrarium;
 
-    public Zoo(AnimalCage<Wolf> wolfCage, AnimalCage<Lion> lionCage, AnimalCage<Snake> snakeTerrarium) {
-        this.wolfCage = wolfCage;
-        this.lionCage = lionCage;
-        this.snakeTerrarium = snakeTerrarium;
+    public Zoo() {
+        this.wolfCage = new WolfCage(new ArrayList<>());
+        this.lionCage = new LionCage(new ArrayList<>());
+        this.snakeTerrarium = new SnakeCage(new ArrayList<>());
     }
 
     @Override
@@ -78,15 +81,9 @@ public class Zoo {
     }
 
     public void deleteRandomAnimal() {
-        int rnd = new Random().nextInt(1, 3);
-        if (wolfCage.countInCage() == 0 &&
-                lionCage.countInCage() == 0 &&
-                snakeTerrarium.countInCage() == 0) {
-            System.out.println("Животных в клетках и так нет");
-            return;
-        } else if (rnd == 1 && wolfCage.countInCage() > 0) wolfCage.pickAnimalFromCage();
-        else if (rnd == 2 && lionCage.countInCage() > 0) lionCage.pickAnimalFromCage();
-        else if (rnd == 3 && snakeTerrarium.countInCage() > 0) snakeTerrarium.pickAnimalFromCage();
-        else deleteRandomAnimal();
+        if (wolfCage.countInCage() > 0) wolfCage.pickAnimalFromCage();
+        else if (lionCage.countInCage() > 0) lionCage.pickAnimalFromCage();
+        else if (snakeTerrarium.countInCage() > 0) snakeTerrarium.pickAnimalFromCage();
+        else System.out.println("Животных в зоопарке нет! ");
     }
 }

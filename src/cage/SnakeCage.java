@@ -2,7 +2,6 @@ package cage;
 
 import animals.Snake;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -10,11 +9,11 @@ import java.util.Random;
 /**
  * Terrarium with snakes
  */
-public class SnakeCage implements AnimalCage<Snake>{
+public class SnakeCage implements AnimalCage<Snake> {
     private final List<Snake> snakesTerrarium;
     private int levelOfDirty;
 
-    public SnakeCage(ArrayList<Snake> snakes) {
+    public SnakeCage(List<Snake> snakes) {
         this.snakesTerrarium = snakes;
     }
 
@@ -48,17 +47,17 @@ public class SnakeCage implements AnimalCage<Snake>{
     @Override
     public Snake pickAnimalFromCage() {
         if (snakesTerrarium.size() > 0) {
-            System.out.println("Забрали змею, осталось - " + (snakesTerrarium.size()-1));
+            System.out.println("Забрали змею, осталось - " + (snakesTerrarium.size() - 1));
             return snakesTerrarium.remove(new Random().nextInt(snakesTerrarium.size()));
-        }else return null;
+        } else return null;
     }
 
     @Override
     public void deleteOlderThan(int limitAge) {
         Iterator<Snake> snakeIterator = snakesTerrarium.iterator();
-        while (snakeIterator.hasNext()){
+        while (snakeIterator.hasNext()) {
             Snake snake = snakeIterator.next();
-            if (snake.getAge() > limitAge){
+            if (snake.getAge() > limitAge) {
                 snakeIterator.remove();
             }
         }

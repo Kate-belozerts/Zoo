@@ -3,21 +3,24 @@ package terminal.production;
 import terminal.allExecute.CommandExecutable;
 import terminal.allExecute.create.CreateAnimalExecutable;
 import terminal.allExecute.delete.DeleteAnimalExecutable;
-import terminal.communicate.inputData.CommandNumber;
+import terminal.communicate.inputData.Command;
 import zoo.Zoo;
+
+import java.util.EmptyStackException;
 
 /**
  * Execute the method depending on user's request
  */
-public class CommandExecutableFactoryInt {
+public class CommandExecutableFactoryInt implements CommandExecutableFactory {
 
-    public CommandExecutable create(CommandNumber command, Zoo zoo) {
-        CommandExecutable commandExecutable = null;
+    @Override
+    public CommandExecutable create(Command command, Zoo zoo) {
+        CommandExecutable commandExecutable;
         if (command.isCreate()) {
-            commandExecutable = new CreateAnimalExecutable(zoo);
+            return commandExecutable = new CreateAnimalExecutable(zoo);
         } else if (command.isDelete()) {
-            commandExecutable = new DeleteAnimalExecutable(zoo);
+            return commandExecutable = new DeleteAnimalExecutable(zoo);
         }
-        return commandExecutable;
+        throw new EmptyStackException();
     }
 }

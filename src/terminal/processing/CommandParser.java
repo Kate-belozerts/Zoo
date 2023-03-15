@@ -1,13 +1,10 @@
 package terminal.processing;
 
-import terminal.communicate.inputData.CommandNumber;
-import terminal.communicate.inputData.CommandText;
+import terminal.communicate.inputData.Command;
 
 /**
  * Work with input text and return filled variable - CommandParser
  */
 public interface CommandParser {
-    //    CommandNumber parseCommand(String inputCommand);
-    CommandText parseCommand(String inputCommand);
-
+    <T extends Command> Command parseCommand(String inputCommand);
 }

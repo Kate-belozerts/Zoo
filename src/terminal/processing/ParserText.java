@@ -1,5 +1,6 @@
 package terminal.processing;
 
+import terminal.communicate.inputData.Command;
 import terminal.communicate.inputData.CommandText;
 
 import java.util.HashMap;
@@ -8,15 +9,15 @@ import java.util.Map;
 
 public class ParserText implements CommandParser {
     @Override
-    public CommandText parseCommand(String inputCommand) {
+    public <T extends Command> Command parseCommand(String inputCommand) {
         Map<String, Integer> param = new HashMap<>();
-        String animal = null;
+        String animal = " ";
         if (inputCommand.contains("del")) {
             param.put("action", 2);
             return new CommandText(param, animal);
         }
         String[] input = inputCommand.toLowerCase().split(",");
-        animal = input[1].trim();
+        animal = input[1].trim().toLowerCase();
 
         for (String s : input) {
             if (s.matches("\\d+")) param.put("action", Integer.valueOf(s));

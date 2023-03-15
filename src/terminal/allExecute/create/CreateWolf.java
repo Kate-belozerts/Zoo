@@ -2,6 +2,7 @@ package terminal.allExecute.create;
 
 import animals.Wolf;
 import terminal.allExecute.CommandExecutable;
+import terminal.communicate.inputData.CommandText;
 import zoo.Zoo;
 
 /**
@@ -9,11 +10,15 @@ import zoo.Zoo;
  */
 public class CreateWolf implements CommandExecutable {
     private final Zoo zoo;
-    private final Wolf wolf;
+    private Wolf wolf;
 
-    public CreateWolf(Zoo zoo, Wolf wolf) {
+    public CreateWolf(Zoo zoo) {
         this.zoo = zoo;
-        this.wolf = wolf;
+    }
+
+    public void wolfParameters(CommandText command) {
+        this.wolf = new Wolf(command.getParameters().get("age"),
+                command.getParameters().get("weight"), command.getParameters().get("limbs"));
     }
 
     @Override
