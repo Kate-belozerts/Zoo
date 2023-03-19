@@ -7,6 +7,7 @@ import cage.WolfCage;
 import factory.LionsFactory;
 import factory.WolvesFactory;
 import terminal.communicate.TerminalReader;
+import terminal.communicate.menus.Choice;
 import terminal.communicate.output.Tuple;
 import terminal.processing.ParserNumber;
 import terminal.processing.ParserText;
@@ -18,19 +19,10 @@ public class Main {
 //        createLions(); // <- pickAnimalFromCage с новым эксепшеном
 //        createWolves(); // <- новый компаратор в действии
 
-        Tuple numOrInt = choice();
+        Tuple numOrInt = Choice.choice();
 //        TerminalReader reader = TerminalReader.newTerminalReader(numOrInt.getCommandParser(), numOrInt.getNumber()); // от первого tuple
         TerminalReader reader = TerminalReader.newTerminalReader(numOrInt.commandParser(), numOrInt.number());
         reader.endless();
-    }
-
-    public static Tuple choice() {
-        Scanner choice = new Scanner(System.in);
-        System.out.println("1 - ввод цифрами\n2 - ввод словами");
-        int result = choice.nextInt();
-        if (result == 1) {
-            return new Tuple(1, new ParserNumber());
-        } else return new Tuple(2, new ParserText());
     }
 
     public static void cleanTheCage(LionCage cages) {
