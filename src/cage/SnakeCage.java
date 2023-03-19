@@ -1,6 +1,7 @@
 package cage;
 
 import animals.Snake;
+import animals.emptyAnimals.EmptySnake;
 
 import java.util.Iterator;
 import java.util.List;
@@ -49,7 +50,7 @@ public class SnakeCage implements AnimalCage<Snake> {
         if (snakesTerrarium.size() > 0) {
             System.out.println("Забрали змею, осталось - " + (snakesTerrarium.size() - 1));
             return snakesTerrarium.remove(new Random().nextInt(snakesTerrarium.size()));
-        } else return null;
+        } else return EmptySnake.newEmptySnake();
     }
 
     @Override

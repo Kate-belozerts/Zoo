@@ -1,11 +1,11 @@
 package cage;
 
+import animals.emptyAnimals.EmptyLion;
 import animals.Lion;
 import animalUtils.comparators.AnimalComparator;
 import animalUtils.comparators.LionComparator;
 
 import java.util.Collections;
-import java.util.EmptyStackException;
 import java.util.List;
 import java.util.Random;
 
@@ -68,7 +68,7 @@ public class LionCage implements AnimalCage<Lion> {
             System.out.println("Забрали у вас одного львенка" +
                     ", осталось - " + (lions.size() - 1));
             return lions.remove(new Random().nextInt(lions.size()));
-        } else throw new EmptyStackException();
+        } else return EmptyLion.newEmptyLion();
     }
 
     @Override

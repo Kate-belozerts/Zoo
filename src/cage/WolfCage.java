@@ -3,14 +3,15 @@ package cage;
 import animalUtils.comparators.WolfComparator;
 import animalUtils.iterators.WolfIterator;
 import animals.Wolf;
+import animals.emptyAnimals.EmptyWolf;
 
 import java.util.*;
 
 /**
  * Cage with wolves
  */
-public class WolfCage implements AnimalCage<Wolf>, Iterable<Wolf> {
-    private final List<Wolf> wolves;
+public class WolfCage extends WolfComparator implements AnimalCage<Wolf>, Iterable<Wolf> {
+    private List<Wolf> wolves;
     private int levelOfDirty;
 
     public WolfCage(List<Wolf> wolves) {
@@ -52,11 +53,11 @@ public class WolfCage implements AnimalCage<Wolf>, Iterable<Wolf> {
 
     @Override
     public Wolf pickAnimalFromCage() {
-        if (wolves.size() == 0) throw new EmptyStackException();
-        int rnd = new Random().nextInt(wolves.size());
-        System.out.println("Забрали у вас одного волка" +
-                ", осталось - " + (wolves.size() - 1));
-        return wolves.remove(rnd);
+        if (wolves.size() > 0){
+            System.out.println("Забрали у вас одного волка" +
+                    ", осталось - " + (wolves.size() - 1));
+            return wolves.remove(new Random().nextInt(wolves.size()));
+        } else  return EmptyWolf.newEmptyWolf();
     }
 
     @Override
@@ -80,5 +81,11 @@ public class WolfCage implements AnimalCage<Wolf>, Iterable<Wolf> {
 
     public void setLevelOfDirty(int levelOfDirty) {
         this.levelOfDirty = levelOfDirty;
+    }
+
+    public void compare() {
+        this.wolves = wolves.stream()
+                .sorted(comparing())
+                .toList();
     }
 }

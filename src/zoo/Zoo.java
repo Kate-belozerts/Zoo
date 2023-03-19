@@ -15,9 +15,9 @@ import java.util.*;
  * Zoo contains three type of cages: wolf's cage, lion's cage and snake terrarium.
  */
 public class Zoo {
-    private AnimalCage<Wolf> wolfCage;
-    private AnimalCage<Lion> lionCage;
-    private AnimalCage<Snake> snakeTerrarium;
+    private final AnimalCage<Wolf> wolfCage;
+    private final AnimalCage<Lion> lionCage;
+    private final AnimalCage<Snake> snakeTerrarium;
 
     public Zoo() {
         this.wolfCage = new WolfCage(new ArrayList<>());

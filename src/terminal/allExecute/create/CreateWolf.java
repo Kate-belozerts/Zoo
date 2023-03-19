@@ -11,18 +11,22 @@ import zoo.Zoo;
 public class CreateWolf implements CommandExecutable {
     private final Zoo zoo;
     private Wolf wolf;
+    private final CommandText commandText;
 
-    public CreateWolf(Zoo zoo) {
+
+    public CreateWolf(Zoo zoo, CommandText commandText) {
         this.zoo = zoo;
+        this.commandText = commandText;
     }
 
-    public void wolfParameters(CommandText command) {
-        this.wolf = new Wolf(command.getParameters().get("age"),
-                command.getParameters().get("weight"), command.getParameters().get("limbs"));
+    public void wolfParameters() {
+        this.wolf = new Wolf(this.commandText.getParameters().get("age"),
+                this.commandText.getParameters().get("weight"), this.commandText.getParameters().get("limbs"));
     }
 
     @Override
     public void execute() {
+        wolfParameters();
         this.zoo.addWolf(this.wolf);
     }
 }

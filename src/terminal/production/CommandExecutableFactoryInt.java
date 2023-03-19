@@ -1,12 +1,11 @@
 package terminal.production;
 
 import terminal.allExecute.CommandExecutable;
+import terminal.allExecute.EmptyCommandExecutable;
 import terminal.allExecute.create.CreateAnimalExecutable;
 import terminal.allExecute.delete.DeleteAnimalExecutable;
 import terminal.communicate.inputData.Command;
 import zoo.Zoo;
-
-import java.util.EmptyStackException;
 
 /**
  * Execute the method depending on user's request
@@ -21,6 +20,6 @@ public class CommandExecutableFactoryInt implements CommandExecutableFactory {
         } else if (command.isDelete()) {
             return commandExecutable = new DeleteAnimalExecutable(zoo);
         }
-        throw new EmptyStackException();
+        return new EmptyCommandExecutable();
     }
 }

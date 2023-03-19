@@ -11,18 +11,21 @@ import zoo.Zoo;
 public class CreateSnake implements CommandExecutable {
     private final Zoo zoo;
     private Snake snake;
+    private final CommandText commandText;
 
-    public CreateSnake(Zoo zoo) {
+    public CreateSnake(Zoo zoo, CommandText commandText) {
         this.zoo = zoo;
+        this.commandText = commandText;
     }
 
-    public void snakeParameters(CommandText command) {
-        this.snake = new Snake(command.getParameters().get("age"),
-                command.getParameters().get("weight"), command.getParameters().get("length"));
+    public void snakeParameters() {
+        this.snake = new Snake(this.commandText.getParameters().get("age"),
+                this.commandText.getParameters().get("weight"), this.commandText.getParameters().get("length"));
     }
 
     @Override
     public void execute() {
+        snakeParameters();
         this.zoo.addSnake(this.snake);
     }
 }

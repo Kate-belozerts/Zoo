@@ -1,6 +1,5 @@
 package terminal.communicate.inputData;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -32,7 +31,7 @@ public class CommandText implements Command {
     /**
      * @return chosen animal
      */
-    public String getAnimal() {
+    public String getTypeAnimal() {
         return animal;
     }
 

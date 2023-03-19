@@ -1,7 +1,9 @@
-package terminal.logging;
+package terminal.production.logging;
 
 import terminal.allExecute.CommandExecutable;
+import terminal.allExecute.EmptyCommandExecutable;
 import terminal.communicate.inputData.Command;
+import terminal.communicate.inputData.CommandNumber;
 import terminal.production.CommandExecutableFactoryInt;
 import zoo.Zoo;
 
@@ -12,7 +14,10 @@ public class LoggingCommandExecutableFactoryInt extends CommandExecutableFactory
         zoo.showCount();
 
         CommandExecutable executable = super.create(command, zoo);
-        System.out.println("Successful end of operation. \n");
+        if (executable instanceof EmptyCommandExecutable) {
+            System.out.println("Вы что-то не то ввели...");
+        } else System.out.println("Successful end of operation. \n");
+
         return executable;
     }
 }

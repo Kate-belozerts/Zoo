@@ -3,7 +3,6 @@ package animalUtils.comparators;
 
 import animals.Wolf;
 
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -16,10 +15,16 @@ public class WolfComparator implements Comparator<Wolf> {
             return Integer.compare(o1.getWeight(), o2.getWeight());
         } else return Integer.compare(o1.getAge(), o2.getAge());
     }
-//    public void comparing() {
-//        Comparator<Wolf> comparator =
+
+    public Comparator<Wolf> comparing() {
+        return Comparator.comparing(Wolf::getAge)
+                .thenComparing(Wolf::getWeight);
+    }
+}
+
+
+//        Comparator<Wolf> comparator = // todo (функциональные интерфейсы и стримы) был в WolfCage. Оставила код ниже для себя)
 //                Comparator.comparing(Wolf::getAge)
 //                        .thenComparing(Wolf::getWeight);
-//        Collections.sort(this.wolves, comparator); // todo (функциональные интерфейсы и стримы) был в WolfCage
-//    }
-}
+//        return comparator;
+////        Collections.sort(wolves, comparator);
